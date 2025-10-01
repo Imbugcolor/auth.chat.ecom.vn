@@ -1,8 +1,8 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from 'auth/auth.module';
-import { HaravanMiddleware } from 'middlewares/haravan.middleware';
+import { AuthModule } from 'src/auth/auth.module';
+import { HaravanMiddleware } from 'src/middlewares/haravan.middleware';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
