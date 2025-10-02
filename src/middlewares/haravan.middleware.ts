@@ -61,6 +61,13 @@ export class HaravanMiddleware implements NestMiddleware {
       throw new UnauthorizedException('Invalid HMAC');
     }
 
+    if (
+      !req.headers['x-haravan-customer-id'] ||
+      !req.headers['x-haravan-org-id']
+    ) {
+      throw new UnauthorizedException('Unauthorized');
+    }
+
     (req as any).haravan_user = {
       orgId: req.headers['x-haravan-org-id'],
       userId: req.headers['x-haravan-customer-id'],
